@@ -1,0 +1,23 @@
+version: '2.1'  
+services:
+  firstapi:
+    image: firstapi
+    build:
+      context: ./firstService
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+  secondapi:
+    image: secondapi
+    build:
+      context: ./secondService
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+  gateway:
+    image: gatewayapi
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
